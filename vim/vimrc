@@ -1,0 +1,132 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'jamessan/vim-gnupg'
+Plug 'mileszs/ack.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdtree',               { 'on': 'NERDTreeToggle' }
+Plug 'eapache/rainbow_parentheses.vim'
+
+Plug 'thoughtbot/vim-rspec'               " uses functions not commands so can't register with 'on'
+
+Plug 'junegunn/vim-easy-align'
+
+Plug 'elixir-lang/vim-elixir',            { 'for': 'elixir' }
+Plug 'slim-template/vim-slim',            { 'for': 'slim' }
+Plug 'kchmck/vim-coffee-script',          { 'for': 'coffee' }
+Plug 'vim-ruby/vim-ruby',                 { 'for': ['ruby', 'eruby'] }
+Plug 'mustache/vim-mustache-handlebars',  { 'for': 'mustache' }
+Plug 'jrozner/vim-antlr',                 { 'for': ['antlr3', 'antlr4'] }
+
+"Plug 'jnurmine/Zenburn'
+"colorscheme zenburn
+":let g:zenburn_high_Contrast=1 " darker background
+
+"Plug 'junegunn/seoul256.vim'
+"colorscheme seoul256
+"let g:seoul256_background = 233
+
+"Plug 'altercation/vim-colors-solarized'
+"set background=dark
+"colorscheme solarized
+
+Plug 'sickill/vim-monokai'
+
+" brew install fzf
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim', { 'on': 'FZF' }
+call plug#end()
+
+set encoding=utf-8
+
+let mapleader = " "                                             " use space as leader
+set nu                                                          " line numbers
+set tabstop=2 shiftwidth=2 expandtab                            " Tab to 2 spaces, replace tab with spaces
+set textwidth=80                                                " Defautocmdlt wrap
+
+colorscheme monokai
+
+let g:ruby_path = []
+augroup ft_rb
+  au!
+  " fix the SLOOOW syntax highlighting
+  au FileType ruby setlocal re=1 foldmethod=manual
+augroup END
+
+" Fix whitespace on save
+autocmd BufWritePre * :FixWhitespace
+
+" Map Ctrl-P to launch FZF
+nnoremap <c-p> :FZF<CR>
+
+" Auto-start NERDTree if no files were specified
+noremap <Leader>n :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.DS_Store$']
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Close vim if the only remaining window is NERDTree
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Turn on rainbows by defautocmdlt
+autocmd VimEnter * RainbowParenthesesToggle
+" Turn on rainbow parentheses for ([{
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
+
+" Don't setup gitgutter keys, do it in tig
+let g:gitgutter_map_keys = 0
+
+" Force bundle exec for rspec runs
+let g:rspec_command = "!bundle exec rspec {spec}"
+noremap <Leader>t :call RunCurrentSpecFile()<CR>
+noremap <Leader>s :call RunNearestSpec()<CR>
+noremap <Leader>l :call RunLastSpec()<CR>
+noremap <Leader>a :call RunAllSpecs()<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" System clipboard
+vnoremap <Leader>y "*y
+nnoremap <Leader>p "*p
+
+" highlight search terms
+set hlsearch
+" clear search highlight
+"nnoremap <esc> :noh<return><esc>
+
+" highlight non-ascii characters
+highlight nonascii cterm=underline ctermfg=red ctermbg=black term=underline
+autocmd BufWinEnter * match nonascii /[^\x00-\x7F]/
+
+" remap esc to jk
+inoremap jk <Esc>
+
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"command FormatAllRuby args **/*.rb | argdo execute "normal gg=G" | update
+
+let g:ackprg = 'ag --vimgrep'
+cnoreabbrev Ack Ack!
+nnoremap <c-t> :Ack!<Space>
+
+" always armor gpg files when saving
+let g:GPGPreferArmor = 1
