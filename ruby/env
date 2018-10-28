@@ -1,0 +1,1 @@
+export RUBY_PROF_MEASURE_MODE=wall

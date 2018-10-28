@@ -1,0 +1,1 @@
+alias remove_all_gems='gem list | cut -d" " -f1 | grep -v zlib | xargs gem uninstall -aIx'
