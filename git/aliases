@@ -1,0 +1,50 @@
+alias s="git status"
+alias t="tig"
+
+alias gd="git difftool"
+alias gdc="git diff --cached"
+
+alias gl="git log"
+alias glo="git log --oneline"
+
+alias gco="git checkout"
+alias b="git checkout -b"
+
+alias gb="git branch"
+alias gba="git branch -a"
+
+alias ga="git add"
+alias grm="git rm"
+
+alias gc="git commit"
+alias gca="git commit -a"
+
+alias grh="git reset --hard"
+
+alias gp="git push"
+alias gpt="git push --tags"
+
+alias gf="git fetch"
+alias gfa="git fetch --all"
+alias gfap="git fetch --all --prune"
+
+alias grb="git rebase -i"
+alias grbc="git rebase --continue"
+
+alias gss="git submodule sync && git submodule update --init"
+
+alias gs="git stash"
+alias gsp="git stash pop"
+alias gsa="git stash apply"
+alias gsl="git stash list"
+alias gcp="git cherry-pick"
+
+alias gbg="git bisect good"
+alias gbb="git bisect bad"
+
+alias gm="git merge --no-ff"
+
+alias fetch="find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;"
+
+alias git-ignore='git update-index --assume-unchanged'
+alias git-unignore='git update-index --no-assume-unchanged'
