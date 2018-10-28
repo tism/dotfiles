@@ -1,0 +1,15 @@
+# brewed things i don't want to autostart
+alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pg_stop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
+alias pg_restart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log restart"
+
+alias mysql_start="mysql.server start"
+alias mysql_stop="mysql.server stop"
+alias mysql_restart="mysql.server restart"
+
+alias redis_start="redis-server /usr/local/etc/redis.conf"
+
+alias rabbitmq_start="rabbitmq-server"
+
+alias elasticsearch_start="elasticsearch -f -D es.config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
+
