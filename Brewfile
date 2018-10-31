@@ -11,5 +11,7 @@ brew "maven"
 brew "chruby"
 brew "ruby-install"
 
+brew "bash-completion"
+
 tap "caskroom/fonts"
 cask "font-iosevka"
