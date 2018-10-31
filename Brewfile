@@ -13,5 +13,8 @@ brew "ruby-install"
 
 brew "bash-completion"
 
+brew "docker-compose"
+brew "docker-compose-completion"
+
 tap "caskroom/fonts"
 cask "font-iosevka"
