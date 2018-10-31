@@ -1,4 +1,4 @@
-cask_args appfile: "/Application"
+cask_args appdir: "/Application"
 
 brew "git"
 brew "tig"
