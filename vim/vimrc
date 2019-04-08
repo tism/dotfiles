@@ -27,6 +27,7 @@ Plug 'kchmck/vim-coffee-script',          { 'for': 'coffee' }
 Plug 'vim-ruby/vim-ruby',                 { 'for': ['ruby', 'eruby'] }
 Plug 'mustache/vim-mustache-handlebars',  { 'for': 'mustache' }
 Plug 'jrozner/vim-antlr',                 { 'for': ['antlr3', 'antlr4'] }
+Plug 'hashivim/vim-terraform',            { 'for': ['tf', 'tfvars', 'tfstate'] }
 
 "Plug 'jnurmine/Zenburn'
 "colorscheme zenburn
