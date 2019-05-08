@@ -13,5 +13,5 @@ brew "ruby-install"
 
 brew "bash-completion"
 
-tap "caskroom/fonts"
+tap "homebrew/cask-fonts"
 cask "font-iosevka"
