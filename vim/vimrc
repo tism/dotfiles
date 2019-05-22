@@ -44,7 +44,11 @@ Plug 'hashivim/vim-terraform',            { 'for': ['tf', 'tfvars', 'tfstate'] }
 Plug 'sickill/vim-monokai'
 
 " brew install fzf
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim', { 'on': 'FZF' }
+if has('mac')
+  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim', { 'on': 'FZF' }
+elseif has('unix')
+  Plug '/home/linuxbrew/.linuxbrew/opt/fzf' | Plug 'junegunn/fzf.vim', { 'on': 'FZF' }
+endif
 call plug#end()
 
 set encoding=utf-8
