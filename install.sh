@@ -1,8 +1,19 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-LINE=". $HOME/.dotfiles/profile"
-FILE="$HOME/.profile"
-grep -qF -- "$LINE" "$FILE" || printf "\n$LINE" >> "$FILE"
+if ! (( $+commands[brew] ))
+then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
 
-rm -rf ~/.vimrc
+brew bundle
+
+if ! [ -d ~/.oh-my-zsh ];
+then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+rm -f ~/.zshrc
+ln -s ~/.dotfiles/zshrc ~/.zshrc
+
+rm -f ~/.vimrc
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc

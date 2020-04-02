@@ -6,12 +6,7 @@ brew "vim"
 brew "fzf"
 brew "the_silver_searcher"
 
-brew "maven"
-
-brew "chruby"
-brew "ruby-install"
-
-brew "bash-completion"
+brew "zsh-completions"
 
 tap "homebrew/cask-fonts"
 cask "font-iosevka"
