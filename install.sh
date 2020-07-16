@@ -12,8 +12,11 @@ then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-rm -f ~/.zshrc
-ln -s ~/.dotfiles/zshrc ~/.zshrc
+link_config () {
+  rm -f $1
+  ln -s $2 $1
+}
 
-rm -f ~/.vimrc
-ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+link_config("~/.zshrc", "~/.dotfiles/zshrc")
+link_config("~/.vimrc", "~/.dotfiles/vim/vimrc")
+link_config("~/.gitconfig", "~/.dotfiles/git/gitconfig")
