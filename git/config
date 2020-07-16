@@ -1,0 +1,9 @@
+[user]
+  name = Lucas Maxwell
+  email = lucas@thecowsays.mu
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[core]
+	excludesfile = ~/.dotfiles/git/ignore
