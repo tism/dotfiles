@@ -7,5 +7,7 @@
 
 [core]
 	excludesfile = ~/.dotfiles/git/ignore
+[pull]
+	rebase = true
 [fetch]
 	prune = true
