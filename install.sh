@@ -19,4 +19,4 @@ link_config () {
 
 link_config "$HOME/.zshrc" "$HOME/.dotfiles/zshrc"
 link_config "$HOME/.vimrc" "$HOME/.dotfiles/vim/vimrc"
-link_config "$HOME/.gitconfig" "$HOME/.dotfiles/git/gitconfig"
+link_config "$HOME/.gitconfig" "$HOME/.dotfiles/git/config"
