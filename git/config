@@ -11,3 +11,7 @@
 	rebase = true
 [fetch]
 	prune = true
+[http]
+	cookiefile = /Users/lucas/.gitcookies
+[init]
+	defaultBranch = main
