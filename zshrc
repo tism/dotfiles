@@ -10,7 +10,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
-export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch arm64"
 export EDITOR="vim"
 
 PROMPT="🍔  %(?:%{$fg_bold[green]%}→ :%{$fg_bold[red]%}→ )"
